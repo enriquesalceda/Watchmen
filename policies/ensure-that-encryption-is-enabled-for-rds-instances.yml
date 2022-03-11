@@ -1,0 +1,28 @@
+policies:
+  - name: ensure-that-encryption-is-enabled-for-rds-instances
+    resource: rds
+    description: |
+      Ensure that your RDS database instances are encrypted to 
+      fulfill compliance requirements for data-at-rest encryption.
+      The RDS data encryption and decryption is handled transparently
+      and does not require any additional action from you or your application.
+
+      This rule can help you with the following compliance standards:
+
+      - PCI
+      - HIPAA
+      - GDPR
+      - APRA
+      - MAS
+      - NIST4
+
+      This rule can help you work with the AWS Well architected framework.
+
+      This rule resolution is part of the Conformity Security & Compliance tool for AWS.
+
+    region: ap-southeast-2
+    filters:
+         - type: value
+           key: StorageEncrypted
+           value: true
+           op: ne
